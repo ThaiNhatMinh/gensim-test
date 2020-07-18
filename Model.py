@@ -46,6 +46,7 @@ class BaseModel(object):
         vec_bow = dictionary.doc2bow(document.lower().split())
         vec_lsi = self.model[vec_bow]
         sims = self.index[vec_lsi]
+        # return list(enumerate(sims))
         return sorted(list(enumerate(sims)), key=lambda x: x[1], reverse=True)
 
     def transform(self):
